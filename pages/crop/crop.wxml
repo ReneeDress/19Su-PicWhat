@@ -1,0 +1,48 @@
+<!--pages/crop/crop.wxml-->
+<view class="bg"/>
+<view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: {{windowHeight*0.183}}px;">
+  <view class="circle pink" style="position: fixed; left: {{-windowWidth*0.45}}px; top: {{-windowHeight*0.36}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle pink" style="position: fixed; left: {{windowWidth*0.626}}px; top: {{windowHeight*0.283}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <button wx:if="{{ifupload}}" class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; position: fixed; left: {{windowWidth*0.03865}}px; top: {{windowHeight*0.02582}}px;" bindtap="index">返回首页</button>
+  <button wx:if="{{ifupload}}" class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; position: fixed; left: {{windowWidth*0.25865}}px; top: {{windowHeight*0.02582}}px;" bindtap="cutsuccess">裁剪预览</button>
+  <view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 0px">
+    <span wx:if="{{!ifupload}}" class="title" style="padding-left: {{windowWidth*0.5}}px; white-space: nowrap; font-size: {{windowWidth*0.12}}px">图片裁剪</span>
+    <view wx:if="{{ifupload}}" class="pic" style="position: fixed; top: {{windowHeight*0.088}}px; width: {{windowWidth*0.96}}px; height: {{windowHeight*0.75}}px; background: url({{doneImage}}) no-repeat; background-size: contain; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <view class='main' bindtap="cutsuccess">
+            <view class='content'>
+              <view class='content_top bg_gray' style="height:{{cut_top}}px"></view>
+              <view class='content_middle' style="height:{{height}}px;">
+                <view class='content_middle_left bg_gray' style="width:{{cut_left}}px"></view>
+                <view class='content_middle_middle' style="width:{{width}}px;height:{{height}}px;transition-duration: .3s;"></view>
+                <view class='content_middle_right bg_gray'></view>
+              </view>
+              <view class='content_bottom bg_gray'></view>
+            </view>
+            <image bindload bindtouchstart="_start" bindtouchmove="_move" bindtouchend="_end" style="width:{{img_width ? img_width + 'px' : 'auto'}};height:{{img_height ? img_height + 'px' : 'auto'}};transform:translate3d({{_img_left-img_width/2}}px,{{_img_top-img_height/2}}px,0) scale({{scale}})" src='{{imgSrc}}'></image>
+      </view>
+      <canvas canvas-id='myCanvas' style="width:{{_canvas_width * 3}}px;height:{{_canvas_height * 3}}px;left:{{canvas_left}}px;top:{{canvas_top}}px" class='cropper-canvas'></canvas>
+      <!-- <image src="{{doneImage}}" mode="aspectFit" style="width: 100%; height: 100%; diaplay: {{none}}" /> -->
+      <span wx:if="{{ifupload}}" class="footer" >{{loading}}</span>
+    </view>
+    <view wx:if="{{!ifupload}}" style="padding-top: {{windowHeight*0.55}}px;">
+      <button class="rbtn color" style="width: {{windowWidth*0.31}}px; height: {{windowHeight*0.07745}}px;" bindtap="upload">选择图片</button>
+    </view>
+    <view wx:if="{{ifupload}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: {{windowHeight*0.67}}px">
+      <view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 0px; height: {{windowHeight*0.07472}}px; width: {{windowWidth*0.96}}px;">
+        <view style="display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 0px; height: 50%; width: {{windowWidth*0.96}}px;">
+          <view class="mode" bindtap='setwidthheight' data-width="{{windowWidth*0.96}}" data-height="{{windowWidth*0.96}}">1:1</view>
+          <view class="mode" bindtap='setwidthheight' data-width="{{windowWidth*0.96}}" data-height="{{windowWidth*0.72}}">4:3</view>
+          <view class="mode" bindtap='setwidthheight' data-width="{{windowWidth*0.96}}" data-height="{{windowWidth*0.54}}">16:9</view>
+          <view class="mode" bindtap='setwidthheight' data-width="{{windowWidth*0.72}}" data-height="{{windowWidth*0.96}}">3:4</view>
+          <view class="mode" bindtap='setwidthheight' data-width="{{windowWidth*0.54}}" data-height="{{windowWidth*0.96}}">9:16</view>
+        </view>
+      </view>
+      <view style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 0px; padding-top: {{windowHeight*0.01}}px">
+        <button class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; margin: {{windowWidth*0.077}}px; margin-top: 0px;" bindtap="upload">重新选择</button>
+        <!-- <span class="footer" style="white-space: nowrap; margin: {{windowWidth*0.077}}px; margin-top: 0px;">图片拼接</span> -->
+        <span class="footer" style="white-space: nowrap; margin: {{windowWidth*0.077}}px; margin-top: 0px;" bindtap="cutsuccess">图片裁剪</span>
+        <button class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; margin: {{windowWidth*0.077}}px; margin-top: 0px;" bindtap="done">完成处理</button>
+      </view>
+    </view>
+  </view>
+</view>

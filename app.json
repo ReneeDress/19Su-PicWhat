@@ -1,13 +1,22 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/ori/ori",
+    "pages/crop/crop",
+    "pages/cropper/cropper",
+    "pages/scan/scan",
+    "pages/beauty/beauty",
+    "pages/filter/filter",
+    "pages/filter_x/filter_x",
+    "pages/stitch/stitch",
+    "pages/about/about",
+    "pages/done/done",
+    "pages/identity/identity"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

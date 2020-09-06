@@ -1,13 +1,22 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--pages/index.wxml-->
+<view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 120px;">
+  <view class="circle pink" style="position: fixed; left: {{-windowWidth*0.45}}px; top: {{-windowHeight*0.36}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle blue" style="position: fixed; left: {{windowWidth*0.40}}px; top: {{-windowHeight*0.42}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle violet" style="position: fixed; left: {{-windowWidth*0.96}}px; top: {{windowHeight*0.46}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle dark" style="position: fixed; left: {{windowWidth*0.96}}px; top: {{windowHeight*0.07}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle green" style="position: fixed; left: {{windowWidth*0.67}}px; top: {{windowHeight*0.78}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle orange" style="position: fixed; left: {{-windowWidth*0.15}}px; top: {{windowHeight*0.89}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+    <view class="grid crop" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="crop"><span style="width: {{grid + 20}}px; white-space: nowrap;">图片裁剪</span></view>
+    <view class="grid scan" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="scan"><span style="width: {{grid + 20}}px; white-space: nowrap;">全能扫描</span></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+    <view class="grid beauty" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="beauty"><span style="width: {{grid + 20}}px; white-space: nowrap;">一键美颜</span></view>
+    <view class="grid filter" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="filter"><span style="width: {{grid + 20}}px; white-space: nowrap;">色彩滤镜</span></view>
+  </view>
+  <view style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+    <view class="grid stitch" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="stitch"><span style="width: {{grid + 20}}px; white-space: nowrap;">图片拼接</span></view>
+    <view class="grid identity" style="width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px"  bindtap="identity"><span style="width: {{grid + 20}}px; white-space: nowrap;">证照换底</span></view>
+    <view class="grid about" style="display: none; width: {{grid}}px; height: {{grid}}px; line-height: {{grid*1.2}}px; font-size: {{grid*0.225}}px; text-indent: {{grid*0.225/2+1}}px" bindtap="about"><span style="width: {{grid + 20}}px; white-space: nowrap;">关于我们</span></view>
   </view>
 </view>

@@ -1,0 +1,28 @@
+<!--pages/beauty/beauty.wxml-->
+<view class="bg"/>
+<view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: {{windowHeight*0.183}}px;">
+  <view class="circle violet" style="position: fixed; left: {{-windowWidth*0.96}}px; top: {{windowHeight*0.46}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle violet" style="position: fixed; left: {{-windowWidth*0.5894}}px; top: {{-windowHeight*0.0707}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <button wx:if="{{ifupload}}" class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; position: fixed; left: {{windowWidth*0.03865}}px; top: {{windowHeight*0.02582}}px;" bindtap="index">返回首页</button>
+  <view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 0px">
+    <span wx:if="{{!ifupload}}" class="title" style="padding-left: {{windowWidth*0.5}}px; white-space: nowrap; font-size: {{windowWidth*0.12}}px">一键美颜</span>
+    <view wx:if="{{ifupload}}" class="pic" style="position: fixed; top: {{windowHeight*0.088}}px; width: {{windowWidth*0.96}}px; height: {{windowHeight*0.75}}px; background: url({{doneImage}}) no-repeat; background-size: contain; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <!-- <image src="{{doneUrl}}" mode="aspectFit" style="width: 100%; height: 100%; diaplay: {{none}}" /> -->
+      <span wx:if="{{ifupload}}" class="footer" >{{loading}}</span>
+    </view>
+    <view wx:if="{{!ifupload}}" style="padding-top: {{windowHeight*0.55}}px;">
+      <button class="rbtn color" style="width: {{windowWidth*0.31}}px; height: {{windowHeight*0.07745}}px;" bindtap="choose_image">选择图片</button>
+    </view>
+    <view wx:if="{{ifupload}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: {{windowHeight*0.67}}px">
+      <view style="display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 0px; height: {{windowHeight*0.07472}}px; width: {{windowWidth*0.96}}px;">
+        <slider bindchange="sliderChange" value="{{beautyStrength}}" min="0" max="15" block-size="280" style="width: {{windowWidth*0.8}}px;" activeColor='#654ea3' />
+      </view>
+      <view style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 0px; padding-top: {{windowHeight*0.01}}px">
+        <button class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; margin: {{windowWidth*0.077}}px; margin-top: 0px;" bindtap="choose_image">重新选择</button>
+        <span class="footer" style="white-space: nowrap; margin: {{windowWidth*0.077}}px; margin-top: 0px;">一键美颜</span>
+        <button class="sbtn color" style="width: {{windowWidth*0.1932}}px; height: {{windowHeight*0.04619}}px; margin: {{windowWidth*0.077}}px; margin-top: 0px;" bindtap="done">完成处理</button>
+      </view>
+    </view>
+  </view>
+
+</view>

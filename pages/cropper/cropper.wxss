@@ -1,0 +1,48 @@
+.main{
+  position: absolute;
+  width:100vw;
+  height:100vh;
+  overflow: hidden;
+}
+.content{
+  z-index: 9;
+  position: absolute;
+  width:100vw;
+  height:100vh;
+  display: flex;
+  flex-direction:column;
+  pointer-events:none;
+}
+.bg_gray{
+  background: rgba(0, 0, 0, 0.45);
+  transition-duration: .35s;
+}
+.content>.content_top{
+  pointer-events:none;
+}
+.content>.content_middle{
+  display: flex;
+  height: 200px;
+  width:100%;
+}
+.content_middle_middle{
+  width:200px;
+  box-sizing:border-box;
+  position: relative;
+  transition-duration: .3s;
+}
+.content_middle_right{
+  flex: auto;
+}
+.content>.content_bottom{
+  flex: auto;
+}
+.cropper-canvas{
+  position: fixed;
+  background: white;
+  width:150px;
+  height:150px;
+  z-index: 10;
+  top:-200%;
+  pointer-events:none;
+}

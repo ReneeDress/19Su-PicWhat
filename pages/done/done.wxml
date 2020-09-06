@@ -1,0 +1,35 @@
+<!--pages/done/done.wxml-->
+<button hover-class="none"></button>
+<view style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 120px;">
+  <view class="circle pink" style="position: fixed; left: {{-windowWidth*0.45}}px; top: {{-windowHeight*0.36}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle blue" style="position: fixed; left: {{windowWidth*0.40}}px; top: {{-windowHeight*0.42}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle violet" style="position: fixed; left: {{-windowWidth*0.96}}px; top: {{windowHeight*0.46}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle dark" style="position: fixed; left: {{windowWidth*0.96}}px; top: {{windowHeight*0.07}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle green" style="position: fixed; left: {{windowWidth*0.67}}px; top: {{windowHeight*0.78}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="circle orange" style="position: fixed; left: {{-windowWidth*0.15}}px; top: {{windowHeight*0.89}}px; width: {{windowWidth+6}}px; height: {{windowWidth+6}}px"/>
+  <view class="title" style="width: {{windowWidth*0.6642}}px; height: {{windowHeight*0.0842}}px; line-height: {{windowHeight*0.0842}}px; font-size: {{windowWidth*0.6642*0.14545}}px">图片处理完成</view>
+  <view class="pic" style="width: {{windowWidth*0.92}}px; height: {{windowHeight*0.45}}px; background: url({{doneImage}}) no-repeat; background-size: contain; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center;" />
+  <view style="display: flex; flex-direction: row; align-items: center; justify-content: center; padding-top: 0px">
+    <view class="btn ctnu" bindtap="ctnu" style="width: {{btn}}px; height: {{btn}}px; margin: {{btn*0.24}}px; line-height: {{btn}}px;">
+      <mp-icon icon="play" color="#ffffff" size="{{btn/1.5}}"/>
+    </view>
+    <view class="btn save" bindtap="save" style="width: {{btn}}px; height: {{btn}}px; margin: {{btn*0.24}}px; line-height: {{btn}}px;">
+      <mp-icon icon="download" color="#ffffff" size="{{btn/1.5}}"/>
+    </view>
+    <!-- <button class="btn share" open-type="share" plain="true" style="width: {{btn}}px; height: {{btn}}px; margin: {{btn*0.24}}px; line-height: {{btn}}px; border: solid 2px #ffffff;">
+      <mp-icon icon="share" color="#ffffff" size="{{btn/1.5}}"/>
+    </button> -->
+    <view class="btn share" bindtap="share" style="width: {{btn}}px; height: {{btn}}px; margin: {{btn*0.24}}px; line-height: {{btn}}px;">
+      <mp-icon icon="share" color="#ffffff" size="{{btn/1.5}}"/>
+    </view>
+    <view class="btn home" bindtap="home" style="width: {{btn}}px; height: {{btn}}px; margin: {{btn*0.24}}px; line-height: {{btn}}px;">
+      <mp-icon icon="home" color="#ffffff" size="{{btn/1.5}}"/>
+    </view>
+  </view>
+  <view style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+    <text class="text" style="margin: {{btn/2*0.97}}px; margin-top: 0px; color: #707070">继续</text>
+    <text class="text" style="margin: {{btn/2*0.97}}px; margin-top: 0px; color: #707070">保存</text>
+    <text class="text" style="margin: {{btn/2*0.97}}px; margin-top: 0px; color: #707070">分享</text>
+    <text class="text" style="margin: {{btn/2*0.97}}px; margin-top: 0px; color: #707070">首页</text>
+  </view>
+</view>
